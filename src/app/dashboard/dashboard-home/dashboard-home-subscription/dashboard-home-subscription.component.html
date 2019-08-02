@@ -1,0 +1,12 @@
+<div class="mat-elevation-z2 subscription" routerLink="/dashboard">
+    <div class="brand">
+      <img *ngIf="hasBrand" [src]="brandImageLink" [alt]="brandAlt" class="brand-logo">
+      <span *ngIf="!hasBrand">{{subscription.source}}</span>
+    </div>
+    <div class="info">
+      <span class="amount">
+      {{subscription.amount}} €
+      </span>
+      <span class="frequency">per {{subscription.paymentFrequency|paymentFrequency}}</span>
+    </div>
+</div>

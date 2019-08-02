@@ -1,0 +1,83 @@
+.search-area {
+  /*
+   *   BACKGROUND
+   */
+  background-image: url("/assets/img/search-area-bg.jpg");
+  background-color: #FAFBEB;
+  background-position: center;
+  background-size: cover;
+
+  /*
+   *   ALIGNMENT
+   */
+  padding: 15vh 60% 15vh 10%;
+  height: 40vh;
+
+  /*
+   *   FLEX
+   */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+
+  .amount-spent {
+    flex: 2;
+
+    font-size: 3rem;
+    font-weight: lighter;
+
+    .amount {
+      text-decoration: underline;
+    }
+  }
+
+  .search-field {
+    flex: 1;
+
+    width: 100%;
+    font-size: 1.5rem;
+
+    button.take-a-look {
+      font-size: 1.5rem;
+      font-weight: lighter;
+    }
+  }
+}
+
+
+main {
+  .subscriptions-list {
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-evenly;
+  }
+
+  .add-subscription {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      height: 90px;
+      width: 90px;
+
+      mat-icon {
+        height: 60px;
+        width: 60px;
+        font-size: 60px;
+        line-height: 60px;
+      }
+    }
+  }
+}
