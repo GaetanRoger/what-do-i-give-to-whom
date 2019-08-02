@@ -1,0 +1,28 @@
+<header class="search-area">
+  <span class="amount-spent" *ngIf="totalAmountSentence$ | async as totalAmountSentence">
+    You give <span class="amount">{{totalAmountSentence}}</span> every month</span>
+  <mat-form-field class="search-field" color="">
+    <input matInput placeholder="What do I give to whom?">
+    <button matSuffix mat-stroked-button color="accent" class="take-a-look">Take a look</button>
+
+  </mat-form-field>
+</header>
+
+<main>
+  <div class="subscriptions-list">
+    <wgw-dashboard-home-subscription
+      *ngFor="let subscription of subscriptions$ | async; trackBy: trackByObjectID"
+      [subscription]="subscription"
+      wgwRemoveHost
+    ></wgw-dashboard-home-subscription>
+  </div>
+  <div class="add-subscription">
+    <button mat-icon-button><mat-icon>add_circle_outline</mat-icon></button>
+  </div>
+</main>
+
+<div class="total-amount">
+  Total : {{totalAmount$ | async}}
+</div>
+
+
