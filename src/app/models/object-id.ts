@@ -1,3 +1,3 @@
 export interface ObjectID {
-  objectID: string;
+  objectID?: string;
 }

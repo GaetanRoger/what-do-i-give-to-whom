@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Add a new subscription</h1>
+<form mat-dialog-content [formGroup]="subscriptionForm" (ngSubmit)="sendResult()">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Brand" formControlName="brand" [matAutocomplete]="brandsAuto">
+    <mat-autocomplete #brandsAuto="matAutocomplete" [displayWith]="displayBrandName">
+      <mat-option *ngFor="let brand of brands$ | async" [value]="brand">
+        <div class="option">
+          <img [src]="brandSymbol(brand)" [alt]="brand.name" class="brand-symbol">
+          <span class="brand-name">{{brand.name}}</span>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <div class="amount">
+    <mat-form-field>
+      <input matInput placeholder="Amount" formControlName="amount" type="number">
+    </mat-form-field>
+    <span>€</span>
+  </div>
+  <mat-form-field class="full-width">
+    <mat-select formControlName="paymentFrequency" placeholder="Frequency">
+      <mat-option *ngFor="let paymentFrequency of paymentFrequencies" [value]="paymentFrequency">
+        {{paymentFrequency}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<section mat-dialog-actions>
+  <button mat-flat-button color="primary" [disabled]="subscriptionForm.invalid" (click)="sendResult()">Add</button>
+  <button mat-flat-button mat-dialog-close>Cancel</button>
+</section>

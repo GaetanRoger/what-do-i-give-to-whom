@@ -1,0 +1,31 @@
+.full-width {
+  width: 100%;
+}
+
+.amount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  img.brand-symbol {
+    height: 25px;
+    max-width: 20%;
+    object-fit: contain;
+    margin-right: 10px;
+    flex: 1;
+  }
+
+  .brand-name {
+    flex: 2;
+  }
+}
+
+
