@@ -1,6 +1,6 @@
 export enum SubscriptionPaymentFrequency {
-  DAILY,
-  WEEKLY,
-  MONTHLY,
-  YEARLY
+  DAILY = 'Daily',
+  WEEKLY = 'Weekly',
+  MONTHLY = 'Monthly',
+  YEARLY = 'Yearly'
 }

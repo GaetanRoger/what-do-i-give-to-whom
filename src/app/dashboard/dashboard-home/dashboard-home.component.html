@@ -16,13 +16,9 @@
       wgwRemoveHost
     ></wgw-dashboard-home-subscription>
   </div>
-  <div class="add-subscription">
+  <div class="add-subscription" (click)="showAddSubscription()">
     <button mat-icon-button><mat-icon>add_circle_outline</mat-icon></button>
   </div>
 </main>
-
-<div class="total-amount">
-  Total : {{totalAmount$ | async}}
-</div>
 
 

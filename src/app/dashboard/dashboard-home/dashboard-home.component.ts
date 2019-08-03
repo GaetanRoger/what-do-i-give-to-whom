@@ -3,6 +3,8 @@ import { Subscription } from '../../models/subscription';
 import { SubscriptionsService } from '../../shared/services/subscriptions/subscriptions.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
+import { AddSubscriptionPopupComponent } from './add-subscription-popup/add-subscription-popup.component';
 
 @Component({
   selector: 'wgw-dashboard-home',
@@ -12,7 +14,8 @@ import { map } from 'rxjs/operators';
 export class DashboardHomeComponent implements OnInit {
   subscriptions$: Observable<Subscription[]>;
 
-  constructor(private readonly subscriptionsService: SubscriptionsService) { }
+  constructor(private readonly subscriptionsService: SubscriptionsService,
+              private readonly dialog: MatDialog) { }
 
   get totalAmountSentence$(): Observable<string> {
     return this.totalAmount$.pipe(
@@ -35,4 +38,17 @@ export class DashboardHomeComponent implements OnInit {
     return subscription.objectID;
   }
 
+  showAddSubscription(): void {
+    this.dialog.open<AddSubscriptionPopupComponent, void, Subscription>(AddSubscriptionPopupComponent)
+      .afterClosed()
+      .subscribe(this.addSubscription, this.addSubscriptionError);
+  }
+
+  private addSubscription(subscription: Subscription): void {
+    console.log('sucess', subscription);
+  }
+
+  private addSubscriptionError(error: any): void {
+    console.error('error', error);
+  }
 }
